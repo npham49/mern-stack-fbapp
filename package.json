@@ -1,0 +1,29 @@
+{
+  "name": "mern-stack-fbapp",
+  "version": "1.0.0",
+  "description": "Feedback leaving app.",
+  "main": "server.js",
+  "scripts": {
+    "start" : "node backend/server.js",
+    "server" : "nodemon backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/npham49/mern-stack-fbapp.git"
+  },
+  "author": "Brian Pham",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/npham49/mern-stack-fbapp/issues"
+  },
+  "homepage": "https://github.com/npham49/mern-stack-fbapp#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.7.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
