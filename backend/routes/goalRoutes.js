@@ -1,11 +1,16 @@
-const express = require('express')
-const { appendFile } = require('fs')
-const router = express.Router()
-const {getGoals,setGoals,updateGoals,deleteGoals} = require('../controllers/goalController')
+const express = require("express");
+const { appendFile } = require("fs");
+const router = express.Router();
+const {
+  getGoals,
+  setGoals,
+  updateGoals,
+  deleteGoals,
+} = require("../controllers/goalController");
 
-router.route('/').get(getGoals).post(setGoals)
+router.route("/").get(getGoals).post(setGoals);
 
-router.route('/:id').put(updateGoals).delete(deleteGoals)
+router.route("/:id").put(updateGoals).delete(deleteGoals);
 
 // router.get('/', getGoals)
 
@@ -15,5 +20,4 @@ router.route('/:id').put(updateGoals).delete(deleteGoals)
 
 // router.delete('/:id', deleteGoals)
 
-
-module.exports = router
+module.exports = router;
