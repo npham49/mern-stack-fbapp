@@ -45,6 +45,8 @@ function Login() {
   }
 
   const onSubmit = (e) => {
+    //prevent the default submit action that the form would take
+    //instead, dispatch the login data to axios in auth
     e.preventDefault()
     
     const userData = {
