@@ -22,12 +22,18 @@ function Header() {
       </div>
       <ul className="ml-auto flex flex-row w-auto">
         {user ? (
+          <>
+          <li className="w-auto mx-2 py-6">
+          <Link to="/" className="flex flex-row">
+            <FaUser className="mr-2 mt-1" /> My Dashboard
+          </Link>
+        </li>
           <li className="w-auto mx-2 py-6">
             <button onClick={onLogout} className='flex flex-row'>
               <FaSignInAlt className="mr-2 mt-1"/> Logout
             </button>
-          
         </li>
+        </>
         ) : (
           <>
           <li className="w-auto mx-2 py-6">
