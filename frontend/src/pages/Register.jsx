@@ -110,6 +110,16 @@ function Register() {
             placeholder="Enter your password again"
             onChange={onChange}
           />
+          {message && (
+            <div
+              class="flex p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800"
+              role="alert"
+            >
+              <div>
+                <span class="font-medium">{message}!</span> Try again!
+              </div>
+            </div>
+          )}
           <div class="flex items-center justify-center">
             <button
               class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 mr-6 rounded focus:outline-none focus:shadow-outline"
@@ -120,6 +130,14 @@ function Register() {
             <button
               class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               type="button"
+              onClick={() =>
+                setFormData({
+                  name: '',
+                  email: '',
+                  password: '',
+                  password2: '',
+                })
+              }
             >
               Reset Form
             </button>
