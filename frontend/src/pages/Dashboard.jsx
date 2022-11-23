@@ -1,19 +1,20 @@
-import React from 'react'
-import {useEffect} from 'react'
+import React, { useEffect} from 'react'
 import {useNavigate, Link} from 'react-router-dom'
 import {useSelector,useDispatch} from 'react-redux'
 import GoalForm from '../components/GoalForm'
 import Spinner from '../components/Spinner'
-import { getGoals,deleteGoal} from '../features/goals/goalSlice'
+import { getGoals} from '../features/goals/goalSlice'
 import {reset} from '../features/auth/authSlice'
-import {FaTimes} from 'react-icons/fa'
 
 function Dashboard() {
+  
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
+
   const {user} = useSelector((state)=>state.auth)
   const {goals,isLoading,isError,message} = useSelector((state)=>state.goals)
+
 
   // I found that the dispatch(getGoals()) was causing this error, because when we
   // logout the authreset in the header.tsx is already calling the reset from the 
@@ -55,7 +56,7 @@ function Dashboard() {
     <div className="text-xl m-4">
       {goals.length>0 ?(
         <div className="flex flex-col w-full justify-center items-center ">
-          {goals.map((goal)=>(
+          {goals.filter(goal => goal.user === user._id).map((goal)=>(
             <div key= {goal._id} className="m-4 w-1/2 border border-slate-200 drop-shadow-md bg-slate-200" >
               <Link to={'/goal/'+goal._id}>
                 <div className="w-full p-4" > 
