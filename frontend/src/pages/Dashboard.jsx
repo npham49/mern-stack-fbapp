@@ -22,9 +22,7 @@ function Dashboard() {
   //dispatch also resolves this error. If you don't call the goalSlice's reset
   // function, the goals will persist in the localstorage after logging out.
   useEffect(()=>{
-    if(isError){
-      console.log(message)
-    }
+    
 
     if (!user) {
       navigate('/login')
@@ -32,6 +30,10 @@ function Dashboard() {
       dispatch(getGoals())
     }
 
+    if(isError){
+      console.log(message)
+    }
+    
     return () => {
       dispatch(reset())
     }

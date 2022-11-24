@@ -3,6 +3,7 @@ import { FaSignInAlt, FaUser } from 'react-icons/fa'
 import { Link, useNavigate } from 'react-router-dom'
 import {useSelector,useDispatch} from 'react-redux'
 import {logout, reset} from '../features/auth/authSlice'
+import {reset as goalReset} from '../features/goals/goalSlice'
 
 function Header() {
   const navigate = useNavigate()
@@ -12,11 +13,12 @@ function Header() {
   const onLogout = ()=> {
     dispatch(logout())
     dispatch(reset())
-    navigate('/')
+    dispatch(goalReset())
+    navigate('/login')
   }
 
   return (
-    <header className="flex flex-row w-full h-19 border-b border-gray-300 px-5 align-middle sticky font-semibold text-xl">
+    <header className="fixed flex flex-row w-full h-19 border-b border-gray-300 px-5 align-middle font-semibold text-xl">
       <div className="mr-auto py-6">
         <Link to="/">GoalSetter</Link>
       </div>
